@@ -1,0 +1,2 @@
+codeql database create ./snd --language c --source-root ./libsndfile --command "./autogen.sh" --command "./configure --disable-shared --enable-ossfuzzers" --command "make -j15 clean" --command "make -j15 ossfuzz/sndfile_fuzzer"
+codeql database analyze ./snd ./temp.ql --output="call.json" --format=sarif-latest --threads=15
